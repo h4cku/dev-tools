@@ -50,6 +50,26 @@ services:
     networks:
       dev:
         ipv4_address: 172.31.0.6
+  my-gogs:
+    image: gogs/gogs
+    ports:
+      - 10022:22
+      - 10880:3000
+    volumes:
+      - ./vols/gogs:/data
+    networks:
+      dev:
+        ipv4_address: 172.31.0.7
+  my-jenkins:
+    image: jenkins/jenkins:alpine3.19-jdk21
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - ./vols/jenkins:/var/jenkins_home
+    networks:
+      dev:
+        ipv4_address: 172.31.0.8
 networks:
   dev:
     name: dev-network
