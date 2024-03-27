@@ -1,0 +1,56 @@
+version: '1'
+services:
+  my-alpine:
+    image: alpine
+    volumes:
+      - ./vols/alpine:/root
+    ports:
+      - 8888:8888
+    entrypoint:
+      - tail
+      - -f
+      - /dev/null
+    networks:
+      dev:
+        ipv4_address: 172.31.0.3
+  my-postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+    volumes:
+      - ./vols/postgres/:/var/lib/postgresql/data
+    networks:
+      dev:
+        ipv4_address: 172.31.0.2
+  my-redis:
+    image: redis:7.2-alpine
+    ports:
+      - 6379:6379
+    networks:
+      dev:
+        ipv4_address: 172.31.0.4
+  my-prometheus:
+    image: prom/prometheus:v2.51.0
+    ports:
+      - 9090:9090
+    volumes:
+      - ./vols/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      dev:
+        ipv4_address: 172.31.0.5
+  my-grafana:
+    image: grafana/grafana:10.1.9-ubuntu
+    ports:
+      - 3000:3000
+    volumes:
+      - ./vols/grafana:/var/lib/grafana
+    networks:
+      dev:
+        ipv4_address: 172.31.0.6
+networks:
+  dev:
+    name: dev-network
+    external: true
