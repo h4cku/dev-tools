@@ -2,3 +2,4 @@ gogs/
 grafana/
 jenkins/
 postgres/
+redis/

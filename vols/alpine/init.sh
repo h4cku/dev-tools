@@ -1,11 +1,11 @@
-#Installing necessary modules
+# Installing necessary modules
 apk update
 apk add curl git net-tools openssh \
-    build-base openjdk21 python3 rust go \
+    build-base openjdk21 python3 python3-dev rust go \
     cargo py3-pip \
     vim zsh
 
-#Installing ohmyzsh
+# Installing ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Setting vim
