@@ -1,5 +1,6 @@
 #Installing necessary modules
-apk add curl git net-tools \
+apk update
+apk add curl git net-tools openssh \
     build-base openjdk21 python3 rust go \
     cargo py3-pip \
     vim zsh
@@ -9,7 +10,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Setting vim
 cp /root/mnt/.vimrc /root
-dos2unix /root/.vimrc
+dos2unix /root/.vimrc # delete ^M characters 
 
 # Installing python packages with pip
 pip install numpy pandas scipy sympy scikit-learn matplotlib flask --break-system-packages
