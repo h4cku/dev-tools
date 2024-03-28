@@ -1,9 +1,9 @@
 version: '1'
 services:
   my-alpine:
-    image: alpine
+    image: alpine:3.19.1
     volumes:
-      - ./vols/alpine:/root
+      - ./vols/alpine:/root/mnt
     ports:
       - 8888:8888
     entrypoint:
