@@ -4,6 +4,7 @@ services:
     image: alpine:3.19.1
     volumes:
       - ./vols/alpine:/root/mnt
+      - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 8888:8888
     entrypoint:

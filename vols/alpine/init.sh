@@ -1,6 +1,6 @@
 # Installing necessary modules
 apk update
-apk add curl git net-tools openssh \
+apk add curl git net-tools openssh docker \
     build-base openjdk21 python3 python3-dev rust go \
     cargo py3-pip \
     vim zsh
