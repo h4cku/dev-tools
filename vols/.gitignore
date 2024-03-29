@@ -3,3 +3,4 @@ grafana/
 jenkins/
 postgres/
 redis/
+dokku/
